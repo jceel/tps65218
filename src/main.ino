@@ -54,7 +54,7 @@ void loop()
 	
 	for (i = 0; i < 0x26; i++) {
 		uint8_t value = read8(0x24, i);
-		Serial.printf("reg%d = 0x%02x\n",  i, value);
+		Serial.printf("reg%d = 0x%02x\r\n",  i, value);
 	}
 
 	Serial.printf("-----------------------------\r\n");
