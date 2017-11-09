@@ -55,6 +55,7 @@ void loop()
 		Serial.printf("reg%d = 0x%02x\n",  i, value);
 	}
 
+	Serial.printf("-----------------------------\n");
 	delay(1000);
 }
 
