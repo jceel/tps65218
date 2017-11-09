@@ -17,6 +17,8 @@
 
 void setup()
 {
+    Serial.begin(115200);
+
     pinMode(LED_BUILTIN,OUTPUT);    // LED
     digitalWrite(LED_BUILTIN,LOW);  // LED off
 
