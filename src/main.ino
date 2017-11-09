@@ -49,15 +49,15 @@ void loop()
 {
 	int i;
 
-	Serial.printf("Begin TPS65218 register dump:\n");
-	Serial.printf("-----------------------------\n");
+	Serial.printf("Begin TPS65218 register dump:\r\n");
+	Serial.printf("-----------------------------\r\n");
 	
 	for (i = 0; i < 0x26; i++) {
 		uint8_t value = read8(0x24, i);
 		Serial.printf("reg%d = 0x%02x\n",  i, value);
 	}
 
-	Serial.printf("-----------------------------\n");
+	Serial.printf("-----------------------------\r\n");
 	delay(1000);
 }
 
