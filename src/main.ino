@@ -72,6 +72,7 @@ void loop()
 
 	if (!enabled) {
 		Serial.printf("About to enable DCDC3 and DCDC4!\r\n");
+		write8(0x24, 0x10, 0x7d ^ 0x11);
 		write8(0x24, 0x11, 0x3f);
 		Serial.printf("Done\r\n");
 		enabled = 1;
