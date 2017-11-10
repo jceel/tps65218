@@ -15,6 +15,8 @@
 
 #include <i2c_t3.h>
 
+int enabled = 0;
+
 void setup()
 {
     Serial.begin(115200);
@@ -45,6 +47,14 @@ uint8_t read8(uint8_t addr, uint8_t reg)
 	return (result);
 }
 
+void write8(uint8_t addr, uint8_t reg, uint8_t value)
+{
+	Wire.beginTransmission(addr);
+	Wire.write(reg);
+	Wire.write(value);
+	Wire.endTransmission();
+}
+
 void loop()
 {
 	int i;
@@ -59,6 +69,13 @@ void loop()
 
 	Serial.printf("-----------------------------\r\n");
 	delay(1000);
+
+	if (!enabled) {
+		Serial.printf("About to enable DCDC3 and DCDC4!\r\n");
+		write8(0x24, 0x11, 0x3f);
+		Serial.printf("Done\r\n");
+		enabled = 1;
+	}
 }
 
 extern "C" int main(void)
